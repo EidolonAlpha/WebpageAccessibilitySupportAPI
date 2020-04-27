@@ -67,7 +67,7 @@ public class LayoutController {
 				for (String cssRule : details.getRuleSetsAsString()) {
 					String savedRuleSetDetails = layoutService.saveCssRulesets(cssRule);
 					SavedRuleset ruleSet = mapper.readValue(savedRuleSetDetails, SavedRuleset.class);
-					String webpagePref = "{\"userId\":" + 61 + ", \"url\": \"" + url +"\", \"ruleSetIdArray\":" + ruleSet.get_id() + "}";
+					String webpagePref = "{\"userId\":" + details.getUserId() + ", \"url\": \"" + url +"\", \"ruleSetIdArray\":" + ruleSet.get_id() + "}";
 					layoutService.saveWebpagePreference(webpagePref);
 				}
 			return new ResponseEntity<>(injectedCSS, HttpStatus.OK);
