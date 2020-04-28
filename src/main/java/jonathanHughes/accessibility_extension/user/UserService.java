@@ -36,4 +36,11 @@ public class UserService {
 		return responseText.body();
 	}
 
+	public String createUser(long userId) throws IOException, InterruptedException {
+		request = HttpRequest.newBuilder()
+				.uri(URI.create("http://localhost:5000/CreateUser?id=" + userId)).build();
+		HttpResponse<String> responseText = client.send(request, HttpResponse.BodyHandlers.ofString());
+		return responseText.body();
+	}
+
 }
