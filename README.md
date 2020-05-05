@@ -11,15 +11,54 @@ Installed latest Version of Java
 ## Installing WebpageAccessibilitySupportAPI
 An installer has been created to aid install.
 
+## Running the Extension Service API
+An Exe has been created that will run the application
 
-## Contributing to WebpageAccessibilitySupportAPI
-To contribute to WebpageAccessibilitySupportAPI, follow these steps:
+## Server Details 
+Port Number : 51058
 
-1. Fork this repository.
-2. Create a branch: `git checkout -b <branch_name>`.
-3. Make your changes and commit them: `git commit -m '<commit_message>'`
-4. Push to the original branch: `git push origin WebpageAccessibilitySupportAPI/<location>`
-5. Create the pull request.
+## Return CSS Endpoint
+URL: /getInjectionCssRules
+
+Parameters: None
+
+Body: {"userId":<UserID>,"url":<URL>}
+
+Body Example: {"userId":61,"url":"file:///D:/jonny/Documents/University/FinalYearProject/TestWebsite/TestWebsite.html"}
+
+Output: Returns a list of all the CSS rules to inject on the specified URL for the specified User
+
+## Delete Webpage Design Modification
+URL: /deleteWebpageModification
+
+Parameters: None
+
+Body: {"userId":<UserID>,"url":<URL>}
+  
+Body Example: {"userId":61,"url":"file:///D:/jonny/Documents/University/FinalYearProject/TestWebsite/TestWebsite.html"}
+
+Output: Returns true or false depending on if the Injection CSS was deleted or not
+
+## Save Injection 
+URL: /saveInjectionCssRules
+
+Parameters: None
+
+Body: {"userId":userId, "url": webpageUrl, "cssRules": cssToSave}
+
+Body Example: {"userId":61, "url": "file:///D:/jonny/Documents/University/FinalYearProject/TestWebsite/TestWebsite.html", "cssRules": ["* { box-sizing: border-box; }","body { font-family: Arial, Helvetica, sans-serif; }","header { background-color: rgb(102, 102, 102);]}
+
+Output: Returns true or false depending on if the Injection CSS was saved or not. 
+
+Additional Details: If the User ID doesnt exist it will be created as a new one
+
+## Font Size Calculation
+
+URL: /fontCalculation
+
+Parameters: currentFontSize: <double> & desiredIncrease: <double>
+ 
+Example URL: http://localhost:51058/fontCalculation?currentFontSize=10&desiredIncreaseParam=5
 
 ## Contact
 Email: jhughes61@qub.ac.uk
